@@ -1,0 +1,29 @@
+apply from: 'dependencies.gradle'
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+checkstyle {
+    toolVersion = "7.6.1"
+}
+
+group = 'io.github.matthieun'
+version = '0.0.0'
+
+sourceCompatibility=1.8
+targetCompatibility=1.8
+
+repositories
+{ mavenCentral() }
+
+dependencies
+{
+    compile packages.slf4j.api
+    compile packages.slf4j.log4j12
+    compile packages.log4j
+    
+    compile packages.jts
+
+    testCompile packages.junit
+}

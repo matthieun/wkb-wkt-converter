@@ -1,0 +1,17 @@
+project.ext.versions = [
+    junit: '4.12',
+    slf4j: '1.7.21',
+    log4j: '1.2.17',
+    jts: '1.13',
+]
+
+project.ext.packages = [
+    junit: "junit:junit:${versions.junit}",
+    slf4j: [
+        api: "org.slf4j:slf4j-api:${versions.slf4j}",
+        simple: "org.slf4j:slf4j-simple:${versions.slf4j}",
+        log4j12: "org.slf4j:slf4j-log4j12:${versions.slf4j}",
+    ],
+    log4j: "log4j:log4j:${versions.log4j}",
+    jts: "com.vividsolutions:jts:${versions.jts}",
+]
