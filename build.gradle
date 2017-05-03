@@ -1,20 +1,21 @@
 apply from: 'dependencies.gradle'
-apply from: 'publish.gradle'
 apply plugin: 'java'
 apply plugin: 'checkstyle'
-
-checkstyle {
-    toolVersion = "7.6.1"
-}
-
-group = 'io.github.matthieun'
-version = '0.0.0'
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 sourceCompatibility=1.8
 targetCompatibility=1.8
 
 repositories
-{ mavenCentral() }
+{
+    mavenCentral()
+}
+
+checkstyle
+{
+    toolVersion = versions.checkstyle
+}
 
 dependencies
 {
@@ -37,3 +38,7 @@ task sourcesJar(type: Jar) {
     from sourceSets.main.allSource
 }
 
+artifacts
+{
+    archives javadocJar, sourcesJar
+}
