@@ -12,11 +12,6 @@ repositories
     mavenCentral()
 }
 
-checkstyle
-{
-    toolVersion = versions.checkstyle
-}
-
 dependencies
 {
     compile packages.slf4j.api
@@ -26,6 +21,14 @@ dependencies
     compile packages.jts
 
     testCompile packages.junit
+}
+
+/**
+ * Test related items
+ */
+checkstyle
+{
+    toolVersion = versions.checkstyle
 }
 
 sourceSets
@@ -42,6 +45,14 @@ sourceSets
     }
 }
 
+test
+{
+    testLogging
+    {
+        events "passed", "skipped", "failed"
+    }
+}
+
 configurations
 {
     integrationTestCompile.extendsFrom testCompile
@@ -51,11 +62,22 @@ configurations
 task integrationTest(type: Test) {
     testClassesDir = sourceSets.integrationTest.output.classesDir
     classpath = sourceSets.integrationTest.runtimeClasspath
+    testLogging
+    {
+        events "passed", "skipped", "failed"
+    }
 }
 
 check.dependsOn integrationTest
 integrationTest.mustRunAfter test
 
+tasks.withType(Test) {
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+}
+
+/**
+ * Artifact related items
+ */
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
     from javadoc
