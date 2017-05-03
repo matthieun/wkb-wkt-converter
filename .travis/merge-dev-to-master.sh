@@ -8,13 +8,19 @@ echo "merge-dev-to-master: $GITHUB_REPO"
 echo "merge-dev-to-master: TRAVIS_BRANCH = $TRAVIS_BRANCH"
 echo "merge-dev-to-master: TRAVIS_PULL_REQUEST = $TRAVIS_PULL_REQUEST"
 
-if [ "$TRAVIS_BRANCH" != "dev" ] || [ "$TRAVIS_PULL_REQUEST" != "false" ];
+if [ "$TRAVIS_BRANCH" != "dev" ];
 then
-	echo "merge-dev-to-master: Exiting! Branch is not dev: $TRAVIS_BRANCH or this is a Pull Request: $TRAVIS_PULL_REQUEST"
+	echo "merge-dev-to-master: Exiting! Branch is not dev: ($TRAVIS_BRANCH)"
     exit 0;
 fi
 
-: ${GITHUB_SECRET_TOKEN:?"GITHUB_SECRET_TOKEN needs to be set!"}
+if [ "$TRAVIS_PULL_REQUEST" != "false" ];
+then
+	echo "merge-dev-to-master: Exiting! This is a Pull Request: $TRAVIS_PULL_REQUEST"
+    exit 0;
+fi
+
+: ${GITHUB_SECRET_TOKEN:?"GITHUB_SECRET_TOKEN needs to be set in .travis.yml!"}
 
 export GIT_COMMITTER_EMAIL="travis@travis.org"
 export GIT_COMMITTER_NAME="Travis CI"
