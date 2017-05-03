@@ -3,7 +3,10 @@
 GITHUB_REPO="matthieun/wkb-wkt-converter"
 MERGE_BRANCH=master
 
-if [ "$TRAVIS_BRANCH" != "dev" ]; then 
+echo "merge-dev-to-master: $GITHUB_REPO"
+
+if [ "$TRAVIS_BRANCH" != "dev" ]; then
+	echo "merge-dev-to-master: Exiting! Branch is not dev: $TRAVIS_BRANCH"
     exit 0;
 fi
 

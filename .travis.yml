@@ -3,7 +3,7 @@ jdk:
   - oraclejdk8
 script:
   - chmod ug+x gradlew
-  - ./gradlew build
+  - ./gradlew clean build
 after_success:
   - chmod -R ug+x .travis
   - .travis/merge-dev-to-master.sh
