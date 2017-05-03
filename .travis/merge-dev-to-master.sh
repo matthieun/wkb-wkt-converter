@@ -2,7 +2,7 @@
 
 GITHUB_REPO="matthieun/wkb-wkt-converter"
 MERGE_BRANCH=master
-SOIURCE_BRANCH=dev
+SOURCE_BRANCH=dev
 
 echo "merge-dev-to-master: $GITHUB_REPO"
 echo "merge-dev-to-master: TRAVIS_BRANCH = $TRAVIS_BRANCH"
