@@ -1,8 +1,7 @@
 apply from: 'dependencies.gradle'
+apply from: 'publish.gradle'
 apply plugin: 'java'
 apply plugin: 'checkstyle'
-apply plugin: 'maven'
-apply plugin: 'signing'
 
 checkstyle {
     toolVersion = "7.6.1"
@@ -27,3 +26,14 @@ dependencies
 
     testCompile packages.junit
 }
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+

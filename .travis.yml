@@ -4,3 +4,4 @@ jdk:
 script:
   - chmod ug+x gradlew
   - ./gradlew build
+
