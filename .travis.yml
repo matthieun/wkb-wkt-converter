@@ -11,4 +11,4 @@ jdk:
 script:
   - chmod -R ug+x .travis
   - .travis/build.sh
-  - if [ $TRAVIS_TEST_RESULT -eq 0 ]; then .travis/merge-dev-to-master.sh; fi
+  - .travis/after-build.sh
