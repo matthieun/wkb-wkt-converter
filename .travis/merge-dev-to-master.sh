@@ -5,8 +5,8 @@ MERGE_BRANCH=master
 
 echo "merge-dev-to-master: $GITHUB_REPO"
 
-if [ "$TRAVIS_BRANCH" != "dev" ]; then
-	echo "merge-dev-to-master: Exiting! Branch is not dev: $TRAVIS_BRANCH"
+if [ "$TRAVIS_BRANCH" != "dev" || "$TRAVIS_PULL_REQUEST" != "false" ]; then
+	echo "merge-dev-to-master: Exiting! Branch is not dev: $TRAVIS_BRANCH or this is a Pull Request: $TRAVIS_PULL_REQUEST"
     exit 0;
 fi
 
