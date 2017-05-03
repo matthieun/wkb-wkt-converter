@@ -1,0 +1,55 @@
+signing
+{
+    sign configurations.archives
+}
+
+uploadArchives
+{
+    repositories
+    {
+        mavenDeployer
+        {
+            beforeDeployment
+            {
+                MavenDeployment deployment -> signing.signPom(deployment)
+            }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project
+            {
+                name 'WKT WKB Converter'
+                packaging 'jar'
+                // optionally artifactId can be defined here
+                description 'Library that uses JTS to convert WKB from/to WKT geometries'
+                url 'https://github.com/matthieun/wkb-wkt-converter'
+
+                scm {
+                    connection 'scm:git:https://github.com/matthieun/wkb-wkt-converter.git'
+                    developerConnection 'scm:git:https://github.com/matthieun/wkb-wkt-converter.git'
+                    url 'https://github.com/matthieun/wkb-wkt-converter'
+                }
+
+                licenses {
+                    license {
+                        name 'BSD 3 Clause'
+                        url 'https://github.com/matthieun/wkb-wkt-converter/blob/master/LICENSE'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'matthieun'
+                        name 'matthieun'
+                    }
+                }
+            }
+        }
+    }
+}
