@@ -21,7 +21,6 @@ echo "Merging $TRAVIS_COMMIT into $MERGE_BRANCH"
 git merge --ff-only "$TRAVIS_COMMIT"
 
 echo "Pushing to $GITHUB_REPO"
-PUSH_URL="https://$GITHUB_SECRET_TOKEN@github.com/$GITHUB_REPO"
 
 # Redirect to /dev/null to avoid secret leakage
-git push $PUSH_URL $MERGE_BRANCH > /dev/null 2>&1
+git push "https://$GITHUB_SECRET_TOKEN@github.com/$GITHUB_REPO" $MERGE_BRANCH > /dev/null 2>&1
