@@ -18,13 +18,13 @@ body='
 {
 	"request":
 	{
-    	"config":
-    	{
-    		"merge_mode": "deep_merge",
-    		"env": {
-        		"MANUAL_RELEASE_TRIGGERED": "true"
-    		}
-    	}
+		"config":
+		{
+			"merge_mode": "deep_merge",
+			"env": {
+				"MANUAL_RELEASE_TRIGGERED": "true"
+			}
+		}
 	}
 }'
 
