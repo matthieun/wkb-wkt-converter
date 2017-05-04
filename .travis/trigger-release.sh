@@ -22,7 +22,8 @@ body='
 		"config":
 		{
 			"merge_mode": "deep_merge",
-			"env": {
+			"env":
+			{
 				"MANUAL_RELEASE_TRIGGERED": "true"
 			}
 		}
