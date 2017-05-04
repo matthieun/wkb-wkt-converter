@@ -18,10 +18,12 @@ body='
 {
 	"request":
 	{
+		"branch": "master",
 		"config":
 		{
 			"merge_mode": "deep_merge",
-			"env": {
+			"env":
+			{
 				"MANUAL_RELEASE_TRIGGERED": "true"
 			}
 		}
