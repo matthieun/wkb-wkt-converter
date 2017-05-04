@@ -27,4 +27,3 @@ script:
   - .travis/build.sh
   - .travis/merge-dev-to-master-gate.sh
   - .travis/deploy-gate.sh
-  
