@@ -18,6 +18,7 @@ body='
 {
 	"request":
 	{
+		"branch": "master",
 		"config":
 		{
 			"merge_mode": "deep_merge",
