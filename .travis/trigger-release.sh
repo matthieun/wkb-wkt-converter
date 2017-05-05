@@ -21,11 +21,7 @@ body='
 		"branch": "master",
 		"config":
 		{
-			"merge_mode": "deep_merge",
-			"env":
-			{
-				"MANUAL_RELEASE_TRIGGERED": "true"
-			}
+			"before_script": "export MANUAL_RELEASE_TRIGGERED=true"
 		}
 	}
 }'

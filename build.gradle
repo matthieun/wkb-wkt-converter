@@ -1,3 +1,11 @@
+// Used to promote a staging release build
+// https://github.com/Codearte/gradle-nexus-staging-plugin
+// gradle closeAndReleaseRepository
+plugins
+{
+    id "io.codearte.nexus-staging" version "0.8.0"
+}
+
 apply from: 'dependencies.gradle'
 apply plugin: 'java'
 apply plugin: 'checkstyle'
@@ -168,4 +176,3 @@ uploadArchives
         }
     }
 }
-
