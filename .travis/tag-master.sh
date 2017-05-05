@@ -39,7 +39,7 @@ cd $TEMPORARY_REPOSITORY
 echo "Checking out $RELEASE_BRANCH"
 git checkout $RELEASE_BRANCH
 
-PROJECT_VERSION=echo $(cat gradle.properties | grep "\-SNAPSHOT" | awk -F '=' '{print $2}' | awk -F '-' '{print $1}')
+PROJECT_VERSION=$(cat gradle.properties | grep "\-SNAPSHOT" | awk -F '=' '{print $2}' | awk -F '-' '{print $1}')
 : ${PROJECT_VERSION:?"PROJECT_VERSION could not be found."}
 
 echo "Tagging $RELEASE_BRANCH at version $PROJECT_VERSION"
