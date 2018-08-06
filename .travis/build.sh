@@ -13,7 +13,7 @@ else
 fi
 
 # Skipping spotless with jdk 10
-export GRADLE_COMMAND="./gradlew clean build -x soptlessJava"
+export GRADLE_COMMAND="./gradlew clean build -x spotlessJava"
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ];
 then
