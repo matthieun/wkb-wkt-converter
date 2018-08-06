@@ -38,6 +38,10 @@ task javadocJar(type: Jar) {
     from javadoc
 }
 
+javadoc {
+    options.addBooleanOption('html5', true)
+}
+
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
