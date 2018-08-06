@@ -12,10 +12,13 @@ else
 	echo "Not a manual release"
 fi
 
+# Skipping spotless with jdk 10
+export GRADLE_COMMAND="./gradlew clean build -x soptlessJava"
+
 if [ "$TRAVIS_PULL_REQUEST" != "false" ];
 then
 	echo "Skip integration tests in pull request builds"
-	./gradlew clean build -x integrationTest
+	$GRADLE_COMMAND -x integrationTest
 else
-	./gradlew clean build
+	$GRADLE_COMMAND
 fi
